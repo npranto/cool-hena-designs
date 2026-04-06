@@ -1,10 +1,4 @@
-import {
-  Button,
-  FormField,
-  Input,
-  Select,
-  Textarea,
-} from "@/components/ui";
+import { Button, FormField, Input, Select, Textarea } from "@/components/ui";
 
 export function BookingForm() {
   return (

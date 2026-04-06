@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #fdfaf5;
+  --foreground: #2c1a0e;
 }
 
 @theme inline {
@@ -10,6 +10,14 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  /* Henna design system — semantic surfaces & text */
+  /* --color-henna-canvas: #fdfaf5;
+  --color-henna-surface: #ffffff;
+  --color-henna-ink: #2c1a0e;
+  --color-henna-body: #5c3d2e;
+  --color-henna-muted: #7a5c45;
+  --color-henna-border: #fde68a;
+  --color-henna-border-subtle: #fef3c7; */
 }
 
 @media (prefers-color-scheme: dark) {

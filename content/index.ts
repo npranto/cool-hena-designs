@@ -82,4 +82,4 @@ export const FOOTER_LINKS: NavLink[] = [
 ];
 
 export const SITE_BRAND = "Cool Henna Designs";
-export const COPYRIGHT = "© 2014 by Shakhi and Akhi";
+export const COPYRIGHT = `© ${new Date().getFullYear()} by Shakhi and Akhi. All rights reserved.`;

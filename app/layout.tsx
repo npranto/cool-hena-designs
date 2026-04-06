@@ -14,7 +14,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Cool Henna Designs | Shakhi & Akhi's Henna",
-  description: "Professional henna artistry by Shakhi & Akhi. Book your henna artist for weddings, events, and more.",
+  description:
+    "Professional henna artistry by Shakhi & Akhi. Book your henna artist for weddings, events, and more.",
 };
 
 export default function RootLayout({

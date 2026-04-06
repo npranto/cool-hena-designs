@@ -10,7 +10,10 @@ export function ContactSection() {
           eyebrow="Contact"
           title="Book your henna artist"
           description={
-            <p>Fill out the form below and we&apos;ll get back to you within 24 hours.</p>
+            <p>
+              Fill out the form below and we&apos;ll get back to you within 24
+              hours.
+            </p>
           }
         />
         <BookingForm />

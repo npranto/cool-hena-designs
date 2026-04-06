@@ -14,10 +14,10 @@ export function AboutHennaSection() {
             title="An ancient art, timeless beauty"
           />
           <Text muted>
-            Henna, or mehndi, is a centuries-old tradition rooted in South Asian,
-            Middle Eastern, and North African cultures. Made from the dried and
-            powdered leaves of the henna plant, it creates rich, warm patterns
-            on the skin that deepen over time.
+            Henna, or mehndi, is a centuries-old tradition rooted in South
+            Asian, Middle Eastern, and North African cultures. Made from the
+            dried and powdered leaves of the henna plant, it creates rich, warm
+            patterns on the skin that deepen over time.
           </Text>
           <Text muted>
             Completely natural and skin-safe, henna is a beautiful way to
