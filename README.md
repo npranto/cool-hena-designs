@@ -13,16 +13,16 @@ Open [http://localhost:3000](http://localhost:3000).
 
 ## Scripts
 
-| Command       | Purpose              |
-| ------------- | -------------------- |
-| `npm run dev` | Local dev server     |
-| `npm run build` | Production build   |
+| Command         | Purpose              |
+| --------------- | -------------------- |
+| `npm run dev`   | Local dev server     |
+| `npm run build` | Production build     |
 | `npm run start` | Run production build |
 | `npm run lint`  | ESLint               |
 
 ## Structure (brief)
 
-- `app/` — routes, layout, global styles  
-- `components/` — page sections and layout  
-- `components/ui/` — shared UI primitives  
-- `content/` — copy and data used on the site  
+- `app/` — routes, layout, global styles
+- `components/` — page sections and layout
+- `components/ui/` — shared UI primitives
+- `content/` — copy and data used on the site

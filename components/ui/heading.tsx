@@ -19,11 +19,7 @@ export type HeadingProps = HTMLAttributes<HTMLHeadingElement> & {
   level?: HeadingLevel;
 };
 
-export function Heading({
-  level = 2,
-  className,
-  ...props
-}: HeadingProps) {
+export function Heading({ level = 2, className, ...props }: HeadingProps) {
   const Tag = levelTag[level];
   return <Tag className={cn(levelClasses[level], className)} {...props} />;
 }
