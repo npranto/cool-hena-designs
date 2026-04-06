@@ -22,6 +22,7 @@ export default function Home() {
         <GallerySection />
         <ReviewsSection />
         <ContactSection />
+        Test
       </main>
       <Footer />
     </div>
