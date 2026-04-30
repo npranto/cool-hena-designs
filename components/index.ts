@@ -5,6 +5,8 @@ export { FactCard } from "./fact-card";
 export { GallerySection } from "./gallery-section";
 export { HeroSection } from "./hero-section";
 export { MissionSection } from "./mission-section";
+export { ProductViewTracker } from "./product-view-tracker";
+export { RecentlyViewedProducts } from "./recently-viewed-products";
 export { ReviewCard } from "./review-card";
 export { ReviewsSection } from "./reviews-section";
 export { ServiceCard } from "./service-card";

@@ -11,35 +11,51 @@ export const NAV_LINKS: NavLink[] = [
 ];
 
 export type Service = {
+  id: string;
   title: string;
+  slug: string;
   description: string;
   icon: string;
+  price: string;
+  imageUrl?: string;
 };
 
 export const SERVICES: Service[] = [
   {
+    id: "bridal-henna",
     title: "Bridal Henna",
+    slug: "bridal-henna",
     description:
       "Intricate full-hand and arm designs for the most important day of your life. Traditional and fusion styles available.",
     icon: "✦",
+    price: "Starting at $150",
   },
   {
+    id: "event-party",
     title: "Event & Party",
+    slug: "event-party",
     description:
       "Fun, quick designs perfect for birthday parties, festivals, baby showers, and corporate events.",
     icon: "✦",
+    price: "Starting at $75",
   },
   {
+    id: "custom-designs",
     title: "Custom Designs",
+    slug: "custom-designs",
     description:
       "Unique patterns tailored to your vision — from minimalist fine-line to bold traditional motifs.",
     icon: "✦",
+    price: "Starting at $50",
   },
   {
+    id: "mehndi-ceremony",
     title: "Mehndi Ceremony",
+    slug: "mehndi-ceremony",
     description:
       "Full mehndi night packages with multiple artists to cover all your guests beautifully.",
     icon: "✦",
+    price: "Starting at $300",
   },
 ];
 
