@@ -1,19 +1,16 @@
 "use client";
 
 import { useCallback, useSyncExternalStore } from "react";
+import {
+  MAX_RECENTLY_VIEWED,
+  STORAGE_KEY,
+  mergeRecentlyViewedAfterView,
+  parseRecentlyViewedProductsJson,
+  type RecentlyViewedProduct,
+} from "@/lib/recently-viewed-products-storage";
 
-export type RecentlyViewedProduct = {
-  id: string;
-  title: string;
-  slug: string;
-  path: string;
-  price?: string;
-  imageUrl?: string;
-  viewedAt: number;
-};
-
-export const STORAGE_KEY = "chd:recently-viewed-products";
-const MAX_ITEMS = 8;
+export type { RecentlyViewedProduct };
+export { STORAGE_KEY };
 
 // ---------- module-level store so all hook instances share one snapshot ----------
 
@@ -29,19 +26,7 @@ function readFromStorage(): RecentlyViewedProduct[] {
   if (typeof window === "undefined") return [];
   try {
     const raw = window.localStorage.getItem(STORAGE_KEY);
-    if (!raw) return [];
-    const parsed = JSON.parse(raw);
-    if (!Array.isArray(parsed)) return [];
-    return parsed.filter(
-      (item): item is RecentlyViewedProduct =>
-        item !== null &&
-        typeof item === "object" &&
-        typeof item.id === "string" &&
-        typeof item.title === "string" &&
-        typeof item.slug === "string" &&
-        typeof item.path === "string" &&
-        typeof item.viewedAt === "number",
-    );
+    return parseRecentlyViewedProductsJson(raw);
   } catch {
     return [];
   }
@@ -79,10 +64,14 @@ function subscribe(onStoreChange: () => void): () => void {
       notifyListeners();
     }
   };
-  window.addEventListener("storage", handleStorage);
+  if (typeof window !== "undefined") {
+    window.addEventListener("storage", handleStorage);
+  }
   return () => {
     listeners.delete(onStoreChange);
-    window.removeEventListener("storage", handleStorage);
+    if (typeof window !== "undefined") {
+      window.removeEventListener("storage", handleStorage);
+    }
   };
 }
 
@@ -97,11 +86,12 @@ export function useRecentlyViewedProducts() {
 
   const addProduct = useCallback(
     (product: Omit<RecentlyViewedProduct, "viewedAt">) => {
-      const filtered = cachedProducts.filter((p) => p.id !== product.id);
-      cachedProducts = [
-        { ...product, viewedAt: Date.now() },
-        ...filtered,
-      ].slice(0, MAX_ITEMS);
+      cachedProducts = mergeRecentlyViewedAfterView(
+        cachedProducts,
+        product,
+        Date.now(),
+        MAX_RECENTLY_VIEWED,
+      );
       writeToStorage(cachedProducts);
       notifyListeners();
     },

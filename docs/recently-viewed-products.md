@@ -16,11 +16,12 @@ At most **8 items** are retained. Viewing the same service again moves it to the
 
 ## Components / hooks
 
-| File                                      | Purpose                                                                                                                         |
-| ----------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
-| `hooks/useRecentlyViewedProducts.ts`      | Read, add, and clear recently viewed products. SSR-safe — no `window` access during server render.                              |
-| `components/product-view-tracker.tsx`     | Client-only side-effect component. Drop into any service page to record a view on mount.                                        |
-| `components/recently-viewed-products.tsx` | Renders the "Recently Viewed" UI strip. Hides itself when the list is empty. Accepts `currentProductId` and `maxVisible` props. |
+| File                                      | Purpose                                                                                                                                                                       |
+| ----------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `lib/recently-viewed-products-storage.ts` | Types, `STORAGE_KEY`, JSON parsing / validation, and merge helpers (dedupe + max length). Covered by unit tests.                                                              |
+| `hooks/useRecentlyViewedProducts.ts`      | Read, add, and clear recently viewed products. SSR-safe — no `window` access during server render.                                                                            |
+| `components/product-view-tracker.tsx`     | Client-only side-effect component. Drop into any service page to record a view on mount.                                                                                      |
+| `components/recently-viewed-products.tsx` | Renders the "Recently Viewed" UI strip. Hides itself when the list is empty. Accepts `currentProductId` and `maxVisible` props. Shows a thumbnail when `imageUrl` was stored. |
 
 ## Where it's integrated
 
@@ -34,7 +35,7 @@ No analytics system exists yet. A `// TODO` comment lives on the `<Link onClick>
 
 ```ts
 // Suggested event name: recently_viewed_product_clicked
-// Payload: { id, title, path, source: "recently_viewed_products" }
+// Payload: { productId, productTitle, destinationUrl, source: "recently_viewed_products" }
 ```
 
 ## Clearing data during testing

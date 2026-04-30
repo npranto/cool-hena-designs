@@ -37,9 +37,8 @@ export function RecentlyViewedProducts({
                 href={product.path}
                 className="block h-full rounded-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-2"
                 onClick={() => {
-                  // TODO: fire analytics event when an analytics system is integrated
-                  // Suggested event: recently_viewed_product_clicked
-                  // Payload: { id: product.id, title: product.title, path: product.path, source: "recently_viewed_products" }
+                  // TODO: when an analytics system exists, emit e.g. `recently_viewed_product_clicked` with:
+                  // { productId: product.id, productTitle: product.title, destinationUrl: product.path, source: "recently_viewed_products" }
                 }}
                 aria-label={`View ${product.title}`}
               >
@@ -48,6 +47,16 @@ export function RecentlyViewedProducts({
                   padding="sm"
                   className="h-full justify-between gap-3"
                 >
+                  {product.imageUrl ? (
+                    <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl bg-amber-100">
+                      {/* eslint-disable-next-line @next/next/no-img-element -- small dynamic thumbnails from CMS/local data */}
+                      <img
+                        src={product.imageUrl}
+                        alt=""
+                        className="h-full w-full object-cover"
+                      />
+                    </div>
+                  ) : null}
                   <div className="flex flex-col gap-1">
                     <Text
                       as="span"

@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 import { useRecentlyViewedProducts } from "@/hooks/useRecentlyViewedProducts";
-import type { RecentlyViewedProduct } from "@/hooks/useRecentlyViewedProducts";
+import type { RecentlyViewedProduct } from "@/lib/recently-viewed-products-storage";
 
 type ProductViewTrackerProps = Omit<RecentlyViewedProduct, "viewedAt">;
 
